@@ -28,7 +28,6 @@ class ProjectController extends Controller
     public function store(Request $request): JsonResponse
     {
         $Project = new Project([
-            'id' => $request->get('id'),
             'startingDate' => $request->get('startingDate'),
             'departments' => $request->get('departments'),
             'grades' => $request->get('grades'),

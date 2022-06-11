@@ -28,7 +28,6 @@ class PositionController extends Controller
     public function store(Request $request): JsonResponse
     {
         $Position = new Position([
-            'id' => $request->get('id'),
             'name' => $request->get('name'),
             'jobId' => $request->get('jobId'),
             'department' => $request->get('department'),

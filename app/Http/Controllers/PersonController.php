@@ -28,7 +28,6 @@ class PersonController extends Controller
     public function store(Request $request): JsonResponse
     {
         $person = new Person([
-            'id' => $request->get('id'),
             'firstName' => $request->get('firstName'),
             'middleName' => $request->get('middleName'),
             'lastName' => $request->get('lastName'),

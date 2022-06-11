@@ -1,5 +1,6 @@
 <?php
 
+use App\Mail\MyTestMail;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,4 +16,16 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::get('sendInterviewInvite', function () {
+
+    $details = [
+        'title' => 'Mock',
+        'body' => 'This is for testing email using smtp'
+    ];
+
+    \Mail::to('rkrumova97@gmail.com')->send(new MyTestMail($details));
+
+    return "Email is Sent.";
 });

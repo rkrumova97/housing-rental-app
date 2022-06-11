@@ -29,7 +29,6 @@ class EmployeeController extends Controller
     public function store(Request $request): JsonResponse
     {
         $employee = new Employee([
-            'id' => $request->get('id'),
             'firstName' => $request->get('firstName'),
             'middleName' => $request->get('middleName'),
             'lastName' => $request->get('lastName'),
@@ -38,15 +37,15 @@ class EmployeeController extends Controller
             'address' => $request->get('address'),
             'email' => $request->get('email'),
             'salary' => $request->get('salary'),
-            'startDate' => $request->get('startDate'),
-            'vacationDays' => $request->get('vacationDays'),
-            'workingHours' => $request->get('workingHours'),
-            'workingDays' => $request->get('workingDays'),
+            'startDate' => $request->get('start_date'),
+            'vacationDays' => $request->get('vacation_days'),
+            'workingHours' => $request->get('working_hours'),
+            'workingDays' => $request->get('working_days'),
             'grade' => $request->get('grade'),
             'skill' => $request->get('skill'),
             'show' => $request->get('show'),
-            'position' => $request->get('position'),
-            'username' => $request->get('username'),
+            'position' => $request->get('position_id'),
+            'username' => $request->get('user_id'),
             'jobId' => $request->get('jobId'),
             'jobName' => $request->get('jobName'),
             'iban' => $request->get('iban')
