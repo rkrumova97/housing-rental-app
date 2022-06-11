@@ -22,7 +22,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::prefix('person')->group(function () {
+Route::prefix('/person')->group(function () {
     Route::get('/', [PersonController::class, 'getAll']);
     Route::post('/', [PersonController::class, 'store']);
     Route::delete('/{id}', [PersonController::class, 'destroy']);
@@ -30,7 +30,7 @@ Route::prefix('person')->group(function () {
     Route::put('/{id}', [PersonController::class, 'update']);
 });
 
-Route::prefix('employee')->group(function () {
+Route::prefix('/employee')->group(function () {
     Route::get('/', [EmployeeController::class, 'getAll']);
     Route::post('/', [EmployeeController::class, 'store']);
     Route::delete('/{id}', [EmployeeController::class, 'destroy']);
@@ -38,7 +38,7 @@ Route::prefix('employee')->group(function () {
     Route::put('/{id}', [EmployeeController::class, 'update']);
 });
 
-Route::prefix('project')->group(function () {
+Route::prefix('/project')->group(function () {
     Route::get('/', [ProjectController::class, 'getAll']);
     Route::post('/', [ProjectController::class, 'store']);
     Route::delete('/{id}', [ProjectController::class, 'destroy']);
@@ -46,7 +46,7 @@ Route::prefix('project')->group(function () {
     Route::put('/{id}', [ProjectController::class, 'update']);
 });
 
-Route::prefix('position')->group(function () {
+Route::prefix('/position')->group(function () {
     Route::get('/', [PositionController::class, 'getAll']);
     Route::post('/', [PositionController::class, 'store']);
     Route::delete('/{id}', [PositionController::class, 'destroy']);
