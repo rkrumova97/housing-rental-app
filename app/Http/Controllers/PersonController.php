@@ -29,7 +29,7 @@ class PersonController extends Controller
     {
         $details = [
             'title' => 'Interview invite',
-            'body' => 'Hi, ' . $request->input('name') .'\n You are invited to an interview on ' . $request->input('interviewDate')];
+            'body' => 'Hi, ' . $request->input('name') .' You are invited to an interview on ' . $request->input('interviewDate')];
 
         \Mail::to($request->input('email'))->send(new MyTestMail($details));
 

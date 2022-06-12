@@ -57,10 +57,7 @@ Route::prefix('/position')->group(function () {
     Route::put('/{id}', [PositionController::class, 'update']);
 });
 
-Route::prefix('/vacation')->group(function () {
-    Route::get('/', [SalaryController::class, 'getAll']);
-    Route::post('/', [SalaryController::class, 'store']);
-    Route::delete('/{id}', [SalaryController::class, 'destroy']);
-    Route::get('/{id}', [SalaryController::class, 'get']);
-    Route::put('/{id}', [SalaryController::class, 'update']);
+Route::prefix('/salary')->group(function () {
+    Route::get('/', [SalaryController::class, 'store']);
+    Route::get('/salaryEmail', [SalaryController::class, 'sendSalaryEmail']);
 });
