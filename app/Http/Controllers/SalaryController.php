@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 use App\Models\Vacation;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Concerns\FromCollection;
 
-class VacationController extends Controller
+
+class SalaryController extends Controller implements FromCollection
 {
     /**
      * Display a listing of the resource.

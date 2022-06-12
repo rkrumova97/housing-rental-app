@@ -4,7 +4,7 @@ use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\PersonController;
 use App\Http\Controllers\PositionController;
 use App\Http\Controllers\ProjectController;
-use App\Http\Controllers\VacationController;
+use App\Http\Controllers\SalaryController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -58,9 +58,9 @@ Route::prefix('/position')->group(function () {
 });
 
 Route::prefix('/vacation')->group(function () {
-    Route::get('/', [VacationController::class, 'getAll']);
-    Route::post('/', [VacationController::class, 'store']);
-    Route::delete('/{id}', [VacationController::class, 'destroy']);
-    Route::get('/{id}', [VacationController::class, 'get']);
-    Route::put('/{id}', [VacationController::class, 'update']);
+    Route::get('/', [SalaryController::class, 'getAll']);
+    Route::post('/', [SalaryController::class, 'store']);
+    Route::delete('/{id}', [SalaryController::class, 'destroy']);
+    Route::get('/{id}', [SalaryController::class, 'get']);
+    Route::put('/{id}', [SalaryController::class, 'update']);
 });
