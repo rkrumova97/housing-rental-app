@@ -16,7 +16,7 @@ class Employee extends Model
     use HasFactory;
 
     protected $fillable = ['id', 'firstName', 'middleName', 'lastName', 'age', 'gender', 'address', 'email', 'salary',
-        'start_date', 'vacation_days', 'working_hours', 'working_days', 'grade', 'skill',
+        'startDate', 'vacationDays', 'workingHours', 'workingDays', 'grade', 'skill',
         'show', 'user_id', 'jobId', 'jobName', 'iban'];
 
     public function position(): HasOne

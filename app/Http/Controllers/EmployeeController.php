@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Employee;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 
 class EmployeeController extends Controller
@@ -16,8 +17,19 @@ class EmployeeController extends Controller
      */
     public function getAll(): JsonResponse
     {
-        $data = (new Employee)->get();
-        return response()->json($data, 200);
+        $data = DB::table('employees')-> where('show', true)->get();
+        return response()->json($data);
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return JsonResponse
+     */
+    public function archive(): JsonResponse
+    {
+        $data = (new Employee)->where('show', false)->get();
+        return response()->json($data);
     }
 
     /**
@@ -37,15 +49,15 @@ class EmployeeController extends Controller
             'address' => $request->get('address'),
             'email' => $request->get('email'),
             'salary' => $request->get('salary'),
-            'startDate' => $request->get('start_date'),
-            'vacationDays' => $request->get('vacation_days'),
-            'workingHours' => $request->get('working_hours'),
-            'workingDays' => $request->get('working_days'),
+            'start_date' => $request->get('start_date'),
+            'vacation_days' => $request->get('vacation_days'),
+            'working_hours' => $request->get('working_hours'),
+            'working_days' => $request->get('working_days'),
             'grade' => $request->get('grade'),
             'skill' => $request->get('skill'),
             'show' => $request->get('show'),
-            'position' => $request->get('position_id'),
-            'username' => $request->get('user_id'),
+            'position' => $request->get('position'),
+            'username_id' => $request->get('username'),
             'jobId' => $request->get('jobId'),
             'jobName' => $request->get('jobName'),
             'iban' => $request->get('iban')
@@ -85,10 +97,10 @@ class EmployeeController extends Controller
             'address' => $request->address,
             'email' => $request->email,
             'salary' => $request->salary,
-            'startDate' => $request->startDate,
-            'vacationDays' => $request->vacationDays,
-            'workingHours' => $request->workingHours,
-            'workingDays' => $request->workingDays,
+            'start_date' => $request->startDate,
+            'vacation_days' => $request->vacationDays,
+            'working_hours' => $request->workingHours,
+            'working_days' => $request->workingDays,
             'grade' => $request->grade,
             'skill' => $request->skill,
             'show' => $request->show,

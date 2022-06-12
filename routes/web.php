@@ -18,7 +18,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('sendInterviewInvite', function () {
+
+Route::get('salaryEmail', function () {
 
     $details = [
         'title' => 'Mock',

@@ -25,6 +25,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::prefix('/person')->group(function () {
     Route::get('/', [PersonController::class, 'getAll']);
+    Route::post('/sendInterviewInvite', [PersonController::class, 'sendMail']);
     Route::post('/', [PersonController::class, 'store']);
     Route::delete('/{id}', [PersonController::class, 'destroy']);
     Route::get('/{id}', [PersonController::class, 'get']);
@@ -33,6 +34,7 @@ Route::prefix('/person')->group(function () {
 
 Route::prefix('/employee')->group(function () {
     Route::get('/', [EmployeeController::class, 'getAll']);
+    Route::get('/archive', [EmployeeController::class, 'archive']);
     Route::post('/', [EmployeeController::class, 'store']);
     Route::delete('/{id}', [EmployeeController::class, 'destroy']);
     Route::get('/{id}', [EmployeeController::class, 'get']);

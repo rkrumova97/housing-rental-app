@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\MyTestMail;
 use App\Models\Person;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
@@ -17,6 +18,22 @@ class PersonController extends Controller
     {
         $data = (new Person())->get();
         return response()->json($data);
+    }
+
+    /**
+     * send email
+     *
+     * @return JsonResponse
+     */
+    public function sendMail(Request $request): JsonResponse
+    {
+        $details = [
+            'title' => 'Interview invite',
+            'body' => 'Hi, ' . $request->input('name') .'\n You are invited to an interview on ' . $request->input('interviewDate')];
+
+        \Mail::to($request->input('email'))->send(new MyTestMail($details));
+
+        return response()->json('Email is Sent.');
     }
 
     /**
