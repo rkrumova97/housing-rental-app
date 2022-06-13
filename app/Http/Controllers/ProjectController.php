@@ -16,7 +16,9 @@ class ProjectController extends Controller
     public function getAll(): JsonResponse
     {
         $data = (new Project())->get();
-        return response()->json($data);
+        $plucked = $data->pluck('name');
+
+        return response()->json($plucked);
     }
 
     /**
