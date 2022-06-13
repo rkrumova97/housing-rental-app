@@ -17,7 +17,7 @@ class EmployeeController extends Controller
      */
     public function getAll(): JsonResponse
     {
-        $data = DB::table('employees')-> where('show', true)->get();
+        $data = DB::table('employees')->where('show', true)->get();
         return response()->json($data);
     }
 
@@ -101,7 +101,7 @@ class EmployeeController extends Controller
             'vacation_days' => $request->vacationDays,
             'working_hours' => $request->workingHours,
             'working_days' => $request->workingDays,
-            'grade' => $request->grade,
+            'grade' => $request->get('grade'),
             'skill' => $request->skill,
             'show' => $request->show,
             'position' => $request->position,
@@ -124,12 +124,12 @@ class EmployeeController extends Controller
      * @return JsonResponse
      */
     public
-    function destroy(int $id): JsonResponse
+    function destroy(int $id)
     {
-        (new Employee)->find($id)->delete();
-        return response()->json([
-            'message' => "Successfully deleted",
-            'success' => true
-        ]);
+        $employee = (new Employee)->find($id);
+        $employee->show = false;
+        $employee->save();
+
+        return $employee;
     }
 }

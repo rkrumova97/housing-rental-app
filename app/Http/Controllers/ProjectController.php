@@ -30,8 +30,8 @@ class ProjectController extends Controller
         $Project = new Project([
             'startingDate' => $request->get('startingDate'),
             'departments' => $request->get('departments'),
-            'grades' => $request->get('grades'),
             'positions' => $request->get('positions'),
+            'name' => $request->get('name'),
             'skills' => $request->get('skills')
         ]);
         $Project->save();
@@ -63,7 +63,7 @@ class ProjectController extends Controller
             'id' => $request->get('id'),
             'startingDate' => $request->get('startingDate'),
             'departments' => $request->get('departments'),
-            'grades' => $request->get('grades'),
+            'name' => $request->get('name'),
             'positions' => $request->get('positions'),
             'skills' => $request->get('skills')
         ]);
